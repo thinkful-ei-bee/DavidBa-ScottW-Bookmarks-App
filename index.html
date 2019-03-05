@@ -8,8 +8,47 @@
   <title>Bookmarks App</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Bookmarks</h1>
+  <div class="adding-item-container">
+    
+    <form>
+        <header class="adding-item-header">
+            <h2>Create New Bookmark</h2>
+          </header>
+      <div class="title-url-contatiner">
+        <label for="js-set-title" >Title</label>
+        <input type="text" name="js-set-title" id="js-set-title" required placeholder="Title">
+        
+        <label for="js-set-url" >URL</label>
+        <input type="text" name="js-set-url" id="js-set-url" required placeholder="URL">
+      </div>
+      <div class="description-rating-container">
+        <div class="set-description">
+        <label for="js-set-description" class="label-text">Description</label>
+        <textarea type="text" name="js-set-description" id="js-set-description" required placeholder="Description"></textarea>
+      </div>
+
+        
+        <fieldset class="set-rating">
+          <legend>Rating</legend>
+        
+          <input type="radio" id="js-set-rating1" name="js-set-rating" value="1">
+          <label for="js-set-rating1">1</label><br/>
+        
+          <input type="radio" id="js-set-rating2" name="js-set-rating" value="2">
+          <label for="js-set-rating2">2</label><br/>
+        
+          <input type="radio" id="js-set-rating3" name="js-set-rating" value="3">
+          <label for="js-set-rating3">3</label><br/>
+
+          <input type="radio" id="js-set-rating4" name="js-set-rating" value="4">
+          <label for="js-set-rating4">4</label><br/>
+
+          <input type="radio" id="js-set-rating5" name="js-set-rating" value="5">
+          <label for="js-set-rating5">5</label>
+        </fieldset>
+      </div>
+      </form>
+        
 
   </div>
 
