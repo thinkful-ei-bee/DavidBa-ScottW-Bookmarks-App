@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     margin-right: auto;
     margin-left:  auto;
@@ -11,12 +15,17 @@ body{
     justify-content: center;
 }
 
+#main-container{
+    margin-bottom: 2rem;
+}
+
 #js-main-btn{
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }
   
-.dropdown-content {
+.js-dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -25,7 +34,7 @@ body{
     z-index: 1;
   }
   
-.dropdown-content a {
+.js-dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
