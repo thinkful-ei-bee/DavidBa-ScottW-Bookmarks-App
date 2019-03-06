@@ -13,6 +13,10 @@ const app = (function() {
       $('.js-adding-item-container').removeClass('hidden');
       //insert add bookmark html
     }
+    if (!store.isAdding) {
+      $('#js-main-buttons').removeClass('hidden');
+      $('.js-adding-item-container').addClass('hidden');
+    }
   }
 
   function handleAddBookmark() {
