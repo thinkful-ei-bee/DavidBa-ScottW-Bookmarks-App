@@ -1,3 +1,4 @@
 # DavidBa-ScottW-Bookmarks-App
-David Baker
-Scott Williams
+### Students:
+* David Baker
+* Scott Williams
