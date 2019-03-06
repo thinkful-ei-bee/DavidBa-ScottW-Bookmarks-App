@@ -84,6 +84,14 @@ const app = (function () {
     });
   }
 
+  function handleCancelSubmit() {
+    $('#js-cancel-submit').click(function(){
+      store.toggleIsAdding();
+      clearInputFields();
+      render();
+    });
+  }
+
 
 
 
@@ -97,6 +105,7 @@ const app = (function () {
     handleAddBookmark();
     handleSubmitNewBookmark();
     handleDeleteBookmark();
+    handleCancelSubmit();
   }
   return {
     render,
