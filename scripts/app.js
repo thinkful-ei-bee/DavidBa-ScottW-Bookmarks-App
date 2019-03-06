@@ -1,5 +1,5 @@
 'use strict';
-/* global store, item */
+/* global store, Item */
 
 // eslint-disable-next-line no-unused-vars
 const app = (function() {
@@ -31,7 +31,7 @@ const app = (function() {
       const desc = $('#js-set-desc').val();
       const rating = $('input[name=js-set-rating]:checked', '.set-rating').val();
 
-      const newItem = item.create(title, url, desc, rating);
+      const newItem = Item.create(title, url, desc, rating);
       store.addItem(newItem);
       store.toggleIsAdding();
       render();
