@@ -48,6 +48,14 @@ const app = (function () {
     });
   }
 
+  function clearInputFields() {
+    $('#js-set-title').val('');
+    $('#js-set-url').val('');
+    $('#js-set-desc').val('');
+    $('input[name=js-set-rating]').prop('checked',false);
+
+  }
+
   // submit handler for bookmark submit
   function handleSubmitNewBookmark() {
     $('.js-adding-item-container').on('click', '#js-submit-bookmark', (event) => {
@@ -61,6 +69,7 @@ const app = (function () {
       const newItem = Item.create(title, url, desc, rating);
       store.addItem(newItem);
       store.toggleIsAdding();
+      clearInputFields();
       render();
     });
   }
