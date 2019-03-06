@@ -18,10 +18,6 @@ const store = (function(){
     this.minimum = newMinimum;
   };
 
-  const filterByMinimum = function(){
-    this.items = this.items.filter(item => item.rating >= this.minimum);
-  };
-
 
   return {
     items: [],
@@ -32,6 +28,5 @@ const store = (function(){
     findAndDelete,
     toggleIsAdding,
     setMinimum,
-    filterByMinimum,
   };
 })();

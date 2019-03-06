@@ -23,15 +23,23 @@
                 <button>Add Bookmark</button>
             </div>
 
-            <div class='js-filter-ratings'>
-                <button onclick='dropDownRating()' class='js-dropbtn'>Minimum Ratings</button>
+            <div class='filter-ratings-container'>
+              <label for="filter-ratings">Minimum Rating</label>
+              <select name="filter-ratings" id="js-filter-ratings">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+                <!-- <button onclick='dropDownRating()' class='js-dropbtn'>Minimum Ratings</button>
                 <div id='js-myDropdown' class='js-dropdown-content'>
                     <a href='#'>1</a>
                     <a href='#'>2</a>
                     <a href='#'>3</a>
                     <a href='#'>4</a>
                     <a href='#'>5</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="js-adding-item-container hidden">

@@ -19,10 +19,16 @@ const app = (function () {
 
   // mapping through store items to call generateBookmarkEl(item)
   function generateBookmarkString() {
-    const bookmarkArray = store.items.map(item => 
+    
+    const filteredArray = store.items.filter(
+      item => item.rating >= store.minimum
+    );
+
+    const bookmarkArray = filteredArray.map(item => 
       generateBookmarkEl(item)
     );
     return bookmarkArray.join('');
+    
   }
   console.log(generateBookmarkString());
 
@@ -92,6 +98,13 @@ const app = (function () {
     });
   }
 
+  function handleFilterItems() {
+    $('#js-filter-ratings').change(function(){
+      store.setMinimum($('#js-filter-ratings').val());
+      render();
+    });
+  }
+
 
 
 
@@ -106,6 +119,7 @@ const app = (function () {
     handleSubmitNewBookmark();
     handleDeleteBookmark();
     handleCancelSubmit();
+    handleFilterItems();
   }
   return {
     render,
