@@ -8,7 +8,7 @@ const app = (function () {
   function generateBookmarkEl(item) {
     return `<div class='bookmark bookmark-border'>
     <div class='delete-btn'>
-        <button id='js-delete-btn'>x</button>
+        <button id='js-delete-btn' data-id="${item.id}">x</button>
     </div>
     <h2 class=''>${item.title}</h2>
     <p>${item.desc}</p>
@@ -37,6 +37,8 @@ const app = (function () {
     }
     const bookmarkString = generateBookmarkString();
     $('.bookmark-container').html(bookmarkString);
+
+    console.log('rendered!');
   }
 
 
@@ -74,6 +76,13 @@ const app = (function () {
     });
   }
 
+  function handleDeleteBookmark() {
+    $('.bookmark-container').on('click', '#js-delete-btn', () => {
+      const id = $('#js-delete-btn').data('id');
+      store.findAndDelete(id);
+      render();
+    });
+  }
 
 
 
@@ -87,6 +96,7 @@ const app = (function () {
   function bindEventListeners() {
     handleAddBookmark();
     handleSubmitNewBookmark();
+    handleDeleteBookmark();
   }
   return {
     render,
