@@ -4,20 +4,6 @@
 // eslint-disable-next-line no-unused-vars
 const app = (function () {
 
-
-
-  function render() {
-    if (store.isAdding) {
-      $('#js-main-buttons').addClass('hidden');
-      $('.js-adding-item-container').removeClass('hidden');
-      //insert add bookmark html
-    } else if (!store.isAdding) {
-      $('#js-main-buttons').removeClass('hidden');
-      $('.js-adding-item-container').addClass('hidden');
-    }
-    $('.bookmark-container').html(generateBookmarkString());
-  }
-
   // generating dom element for our bookmarks
   function generateBookmarkEl(item) {
     return `<div class='bookmark bookmark-border'>
@@ -33,12 +19,27 @@ const app = (function () {
 
   // mapping through store items to call generateBookmarkEl(item)
   function generateBookmarkString() {
-    const bookmarkArray = store.item.map(item => {
-      generateBookmarkEl(item);
-    });
+    const bookmarkArray = store.items.map(item => 
+      generateBookmarkEl(item)
+    );
     return bookmarkArray.join('');
   }
   console.log(generateBookmarkString());
+
+  function render() {
+    if (store.isAdding) {
+      $('#js-main-buttons').addClass('hidden');
+      $('.js-adding-item-container').removeClass('hidden');
+      //insert add bookmark html
+    } else if (!store.isAdding) {
+      $('#js-main-buttons').removeClass('hidden');
+      $('.js-adding-item-container').addClass('hidden');
+    }
+    const bookmarkString = generateBookmarkString();
+    $('.bookmark-container').html(bookmarkString);
+  }
+
+
 
   function handleAddBookmark() {
     $('.js-add-bookmark').on('click', () => {
@@ -80,7 +81,11 @@ const app = (function () {
   }
   return {
     render,
-    bindEventListeners
+    bindEventListeners,
+
+    generateBookmarkEl,
+    generateBookmarkString
+
   };
 
 })();
