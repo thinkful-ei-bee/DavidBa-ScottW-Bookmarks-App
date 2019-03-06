@@ -89,10 +89,16 @@ textarea {
 .dropdown-content a:hover {background-color: #ddd}
 
 .show {display:block;}
-.bookmark-container{
+
+.bookmark-container {
     display: 
 }
+
 .bookmark-border{
     border: 1px solid #000000;
 }
 
+
+.hidden {
+  display: none;
+}
