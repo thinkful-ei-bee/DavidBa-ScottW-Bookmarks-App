@@ -1,5 +1,31 @@
 'use strict';
 
+// eslint-disable-next-line no-unused-vars
+const app = (function() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function bindEventListeners() {
+
+  }
+  return {
+    render,
+    bindEventListeners
+  };
+
+})();
+
+
 const dropDownRating = () => {
   document.getElementById('js-myDropdown').classList.toggle('show');
 };
@@ -15,3 +41,4 @@ window.onclick = function (e) {
     }
   }
 };
+
