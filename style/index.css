@@ -64,10 +64,14 @@ textarea {
     margin-bottom: 2rem;
 }
 
-#js-main-btn{
+#js-main-buttons{
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+}
+
+.js-add-bookmark{
+  margin-right: 1rem;
 }
   
 .js-dropdown-content {
