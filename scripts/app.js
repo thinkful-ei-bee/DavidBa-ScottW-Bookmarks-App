@@ -2,22 +2,43 @@
 /* global store, Item */
 
 // eslint-disable-next-line no-unused-vars
-const app = (function() {
+const app = (function () {
 
 
 
   function render() {
-
     if (store.isAdding) {
       $('#js-main-buttons').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
       //insert add bookmark html
-    }
-    if (!store.isAdding) {
+    } else if (!store.isAdding) {
       $('#js-main-buttons').removeClass('hidden');
       $('.js-adding-item-container').addClass('hidden');
     }
+    $('.bookmark-container').html(generateBookmarkString());
   }
+
+  // generating dom element for our bookmarks
+  function generateBookmarkEl(item) {
+    return `<div class='bookmark bookmark-border'>
+    <div class='delete-btn'>
+        <button id='js-delete-btn'>x</button>
+    </div>
+    <h2 class=''>${item.title}</h2>
+    <p>${item.desc}</p>
+    <h5><a>${item.url}</a></h5>
+    <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
+    </div>`;
+  }
+
+  // mapping through store items to call generateBookmarkEl(item)
+  function generateBookmarkString() {
+    const bookmarkArray = store.item.map(item => {
+      generateBookmarkEl(item);
+    });
+    return bookmarkArray.join('');
+  }
+  console.log(generateBookmarkString());
 
   function handleAddBookmark() {
     $('.js-add-bookmark').on('click', () => {
@@ -26,6 +47,7 @@ const app = (function() {
     });
   }
 
+  // submit handler for bookmark submit
   function handleSubmitNewBookmark() {
     $('.js-adding-item-container').on('click', '#js-submit-bookmark', (event) => {
       event.preventDefault();
@@ -60,7 +82,7 @@ const app = (function() {
     render,
     bindEventListeners
   };
- 
+
 })();
 
 
@@ -79,4 +101,3 @@ window.onclick = function (e) {
     }
   }
 };
-
