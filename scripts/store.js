@@ -34,5 +34,4 @@ const store = (function(){
     setMinimum,
     filterByMinimum,
   };
-
 })();
