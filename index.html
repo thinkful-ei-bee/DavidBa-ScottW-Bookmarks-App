@@ -13,12 +13,12 @@
 
     <header class='header-container'>
         <div id='header'>
-            <h1>Bookmark App</h1>
+            <h1 class='typewriter'>Bookmark App</h1>
         </div>
     </header>
 
     <section class='main-container'>
-        <div id='js-main-buttons'>
+        <div id='js-add-btn'>
             <div class='js-add-bookmark'>
                 <button>Add Bookmark</button>
             </div>
@@ -48,17 +48,19 @@
                 <header class="adding-item-header">
                     <h2>Create New Bookmark</h2>
                   </header>
-              <div class="title-url-contatiner">
-                <label for="js-set-title" >Title</label>
+              <div class="title-url-container">
+                <label class='set-title' for="js-set-title">Title:</label>
                 <input type="text" name="js-set-title" id="js-set-title" required placeholder="Title">
                 
-                <label for="js-set-url" >URL</label>
-                <input type="text" name="js-set-url" id="js-set-url" required placeholder="URL">
+                <label class='set-url' for="js-set-url">Website:</label>
+                <input type="text" name="js-set-url" id="js-set-url" required placeholder="Website">
               </div>
               <div class="description-rating-container">
+
                 <div class="set-description">
-                <label for="js-set-desc" class="label-text">Description</label>
-                <textarea type="text" name="js-set-desc" id="js-set-desc" required placeholder="Description"></textarea>
+
+                <label for="js-set-desc" class="label-text"></label>
+                <textarea type="text" name="js-set-desc" id="js-set-desc" required placeholder="Description..."></textarea>
               </div>
         
                 
@@ -81,11 +83,13 @@
                   <label for="js-set-rating5">5</label>
                 </fieldset>
               </div>
-              <button type="submit" id="js-submit-bookmark">Add Bookmark</button>
-              <button type="button" id="js-cancel-submit">Cancel</button>
-              </form>
-                
-        
+
+              <div class="add-cancel-container">
+                <button type="submit" id="js-submit-bookmark">Add Bookmark</button>
+                <button type="button" id="js-cancel-submit">Cancel</button>
+              </div>
+
+              </form>    
           </div>
     </section>
 
