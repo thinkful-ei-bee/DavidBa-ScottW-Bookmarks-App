@@ -1,7 +1,7 @@
 'use strict';
-/* global app*/
+/* global api app*/
 
 $(document).ready(function() {
-  app.render();
+  api.getBookmarks();
   app.bindEventListeners(); 
 });

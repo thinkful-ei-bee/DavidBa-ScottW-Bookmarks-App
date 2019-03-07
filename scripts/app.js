@@ -6,14 +6,19 @@ const app = (function () {
 
   // generating dom element for our bookmarks
   function generateBookmarkEl(item) {
+
     return `<div class='bookmark bookmark-border'>
-    <div class='title-delete-container'>
-    <h2 class='bookmarkTitle'>${item.title}</h2>
-      <button id='js-delete-btn' data-id="${item.id}">x</button>
+    <div class='bookmarkTitle'>
+      <span class='ratings bookmark-rating'>Rating:${item.rating}</span>
+      <span>${item.title}</span>
+      <span class='delete-container'>
+        <button id='js-delete-btn' data-id="${item.id}">x</button>
+      </span>
     </div>
+      
     <p>${item.desc}</p>
     <h5><a>${item.url}</a></h5>
-    <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
+  
     </div>`;
   }
 
