@@ -116,8 +116,8 @@ const app = (function () {
   }
 
   function handleDeleteBookmark() {
-    $('.bookmark-container').on('click', '#js-delete-btn', () => {
-      const id = $('#js-delete-btn').data('id');
+    $('.bookmark-container').on('click', '#js-delete-btn', event => {
+      const id = $(event.target).data('id');
       let error = null;
       api.deleteBookmark(id)
         .then(res => {
@@ -138,8 +138,8 @@ const app = (function () {
   }
 
   function handleExpandButton() {
-    $('.bookmark-container').on('click', '#js-expand-btn', () => {
-      const id = $('#js-expand-btn').data('id');
+    $('.bookmark-container').on('click', '#js-expand-btn', event => {
+      const id = $(event.target).data('id');
       store.toggleExpanded(id);
       render();
     });
