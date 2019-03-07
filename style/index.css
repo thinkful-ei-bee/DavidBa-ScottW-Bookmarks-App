@@ -141,12 +141,8 @@ textarea {
 .show {display:block;} */
 
 /* bookmark styles */
-#js-delete-btn{
-  
-}
-
 .bookmark-container {
-    display: 
+    text-align: center; 
 }
 
 .bookmark-border{
@@ -159,7 +155,9 @@ textarea {
 }
 
 /* BUTTON STYLING */
-button{
+.add-bk,
+#js-submit-bookmark,
+#js-cancel-submit{
     box-shadow: 3px 4px 0px 0px #8a2a21;
     background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
     background-color: #c62d1f;
@@ -175,15 +173,22 @@ button{
     text-shadow: 0px 1px 0px #810e05;
     outline: none;
     margin-bottom: 25px;
+    font-weight: bolder;
 }
 
-button:hover {
+.add-bk:hover {
     background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
     background-color: #f24437;
 }
 
-button {
-    font-weight: bolder;
+#js-cancel-submit:hover {
+    background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+    background-color: #f24437;
+}
+
+#js-submit-bookmark:hover {
+  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color: #f24437;
 }
 
 /* TYPEWRITER EFFECT */

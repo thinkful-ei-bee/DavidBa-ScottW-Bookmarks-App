@@ -7,10 +7,10 @@ const app = (function () {
   // generating dom element for our bookmarks
   function generateBookmarkEl(item) {
     return `<div class='bookmark bookmark-border'>
-    <div class='delete-btn'>
-        <button id='js-delete-btn' data-id="${item.id}">x</button>
+    <div class='title-delete-container'>
+    <h2 class='bookmarkTitle'>${item.title}</h2>
+      <button id='js-delete-btn' data-id="${item.id}">x</button>
     </div>
-    <h2 class=''>${item.title}</h2>
     <p>${item.desc}</p>
     <h5><a>${item.url}</a></h5>
     <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
@@ -34,11 +34,11 @@ const app = (function () {
   function render() {
 
     if (store.isAdding) {
-      $('#js-main-buttons').addClass('hidden');
+      $('#js-add-btn').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
     
     } else if (!store.isAdding) {
-      $('#js-main-buttons').removeClass('hidden');
+      $('#js-add-btn').removeClass('hidden');
       $('.js-adding-item-container').addClass('hidden');
     }
     const bookmarkString = generateBookmarkString();
