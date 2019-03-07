@@ -2,12 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 const store = (function(){
 
-  const addItem = function(item){
-    this.items.push(item);
-  };
-
-  const findAndDelete = function(id){
-    this.items = this.items.filter(item => item.id !== id);
+  const addBookmarks = function(bookmarks){
+    this.items = bookmarks;
   };
 
   const toggleIsAdding = function(){
@@ -24,8 +20,7 @@ const store = (function(){
     isAdding: false,
     minimum: 0,
 
-    addItem,
-    findAndDelete,
+    addBookmarks,
     toggleIsAdding,
     setMinimum,
   };

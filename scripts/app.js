@@ -1,5 +1,5 @@
 'use strict';
-/* global store, Item */
+/* global store, Item, api, cuid */
 
 // eslint-disable-next-line no-unused-vars
 const app = (function () {
@@ -30,13 +30,13 @@ const app = (function () {
     return bookmarkArray.join('');
     
   }
-  console.log(generateBookmarkString());
 
   function render() {
+
     if (store.isAdding) {
       $('#js-main-buttons').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
-      //insert add bookmark html
+    
     } else if (!store.isAdding) {
       $('#js-main-buttons').removeClass('hidden');
       $('.js-adding-item-container').addClass('hidden');
@@ -46,6 +46,7 @@ const app = (function () {
 
     console.log('rendered!');
   }
+      
 
 
 
@@ -69,24 +70,55 @@ const app = (function () {
     $('.js-adding-item-container').on('click', '#js-submit-bookmark', (event) => {
       event.preventDefault();
 
-      const title = $('#js-set-title').val();
-      const url = $('#js-set-url').val();
-      const desc = $('#js-set-desc').val();
-      const rating = $('input[name=js-set-rating]:checked', '.set-rating').val();
-
-      const newItem = Item.create(title, url, desc, rating);
-      store.addItem(newItem);
-      store.toggleIsAdding();
-      clearInputFields();
-      render();
+      const newItem = {
+        
+        title: $('#js-set-title').val(),
+        url: $('#js-set-url').val(),
+        desc: $('#js-set-desc').val(),
+        rating: $('input[name=js-set-rating]:checked', '.set-rating').val()
+        
+      };
+      //trying something for error handling
+      let error = null;
+      api.createBookmark(newItem)
+        .then(res => {
+          if (!res.ok) {
+            error = {code: res.status};
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (error) {
+            error.message = data.message;
+            alert(error.message);
+            return Promise.reject(error);
+          }
+          store.toggleIsAdding();
+          clearInputFields();
+          api.getBookmarks();
+        });
     });
   }
 
   function handleDeleteBookmark() {
     $('.bookmark-container').on('click', '#js-delete-btn', () => {
       const id = $('#js-delete-btn').data('id');
-      store.findAndDelete(id);
-      render();
+      let error = null;
+      api.deleteBookmark(id)
+        .then(res => {
+          if (!res.ok) {
+            error = {code: res.status};
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (error) {
+            error.message = data.message;
+            alert(error.message);
+            return Promise.reject(error);
+          }
+          api.getBookmarks();
+        });
     });
   }
 
