@@ -1,5 +1,5 @@
 'use strict';
-/* global api app*/
+/* global app api*/
 
 $(document).ready(function() {
   api.getBookmarks();
