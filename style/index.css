@@ -15,38 +15,65 @@
     background: rgba(0, 0, 0, .2);
   }
 
+.header-container{
+  margin-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#js-add-btn{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
 
 .adding-item-container {
   border: solid black;
   display: flex;
   justify-content: center;
+  justify-content: center;
   width: 600px;
   padding: 20px;
 }
-  
+
+/* css styling for content rendered to dom */
+/* centering form content */
+.description-rating-container {
+  display: flex;
+}
+
+
 .label-text {
   display: block;
 }
 
 textarea {
   height: 125px;
-  width: 400px;
-}
-
-.description-rating-container {
-  display: flex;
-  
+  width: 425px;
 }
 
 .set-rating {
   padding: 5px;
   height: 125px;
-  margin-top: 18px;
+  position: relative;
+  left: 5px;
+  /* margin-top: 18px; */
 }
 
-.adding-item-header {
-  display: block;
+#js-add-btn,
+.adding-item-header, 
+.title-url-container,
+.description-rating-container,
+.add-cancel-container {
+  display: flex;
+  justify-content: center;
 }
+
+.title-url-container{
+  margin-bottom: 1rem;
+}
+
 .adding-item-header h2 {
   margin: 10px;
 }
@@ -56,11 +83,6 @@ textarea {
 } */
 
 /* scott css */
-
-.header-container{
-    display: flex;
-    justify-content: center;
-}
 
 #main-container{
     margin-bottom: 2rem;
@@ -75,8 +97,30 @@ textarea {
 .js-add-bookmark{
   margin-right: 1rem;
 }
-  
-.js-dropdown-content {
+
+.set-title,
+.set-url{
+  margin-right: 5px;
+}
+
+#js-set-title{
+  margin-right: 3rem;
+}
+
+#js-set-url{
+  margin-right: 3rem;
+}
+
+#js-submit-bookmark{
+  position: relative;
+  right: 5rem;
+}
+
+.add-cancel-container{
+ margin-top: 1em;
+}
+
+/* .js-dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -94,7 +138,12 @@ textarea {
   
 .dropdown-content a:hover {background-color: #ddd}
 
-.show {display:block;}
+.show {display:block;} */
+
+/* bookmark styles */
+#js-delete-btn{
+  
+}
 
 .bookmark-container {
     display: 
