@@ -6,15 +6,29 @@ const app = (function () {
 
   // generating dom element for our bookmarks
   function generateBookmarkEl(item) {
-    return `<div class='bookmark bookmark-border'>
+
+    if (item.expanded) {
+      return `<div class='bookmark bookmark-border'>
     <div class='title-delete-container'>
     <h2 class='bookmarkTitle'>${item.title}</h2>
       <button id='js-delete-btn' data-id="${item.id}">x</button>
+      <button id='js-expand-btn' data-id="${item.id}">-</button>
     </div>
     <p>${item.desc}</p>
     <h5><a>${item.url}</a></h5>
     <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
     </div>`;
+    }
+    else {
+      return `<div class='bookmark bookmark-border'>
+    <div class='title-delete-container'>
+    <h2 class='bookmarkTitle'>${item.title}</h2>
+      <button id='js-delete-btn' data-id="${item.id}">x</button>
+      <button id='js-expand-btn' data-id="${item.id}">+</button>
+    </div>
+    <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
+    </div>`;
+    }
   }
 
   // mapping through store items to call generateBookmarkEl(item)
@@ -36,6 +50,7 @@ const app = (function () {
     if (store.isAdding) {
       $('#js-add-btn').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
+      
     
     } else if (!store.isAdding) {
       $('#js-add-btn').removeClass('hidden');
@@ -122,6 +137,14 @@ const app = (function () {
     });
   }
 
+  function handleExpandButton() {
+    $('.bookmark-container').on('click', '#js-expand-btn', () => {
+      const id = $('#js-expand-btn').data('id');
+      store.toggleExpanded(id);
+      render();
+    });
+  }
+
   function handleCancelSubmit() {
     $('#js-cancel-submit').click(function(){
       store.toggleIsAdding();
@@ -152,6 +175,8 @@ const app = (function () {
     handleDeleteBookmark();
     handleCancelSubmit();
     handleFilterItems();
+    
+    handleExpandButton();
   }
   return {
     render,

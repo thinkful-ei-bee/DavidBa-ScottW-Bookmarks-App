@@ -150,9 +150,7 @@ textarea {
 }
 
 
-.hidden {
-  display: none;
-}
+
 
 /* BUTTON STYLING */
 .add-bk,
@@ -205,4 +203,8 @@ textarea {
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
+}
+
+.hidden {
+  display: none !important;
 }
