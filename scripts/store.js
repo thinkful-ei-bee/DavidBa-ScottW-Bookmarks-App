@@ -33,7 +33,7 @@ const store = (function(){
   return {
     items: [],
     isAdding: false,
-    minimum: 1,
+    minimum: 0,
     errorMessage: '',
 
     addBookmarks,
