@@ -1,5 +1,7 @@
 'use strict';
 // eslint-disable-next-line no-unused-vars
+
+// global store object 
 const store = (function(){
 
   const addExpanded = function(){
@@ -24,10 +26,15 @@ const store = (function(){
     this.minimum = newMinimum;
   };
 
+  const setErrorMessage = function(message){
+    this.errorMessage = message;
+  };
+
   return {
     items: [],
     isAdding: false,
     minimum: 0,
+    errorMessage: '',
 
     addBookmarks,
     toggleIsAdding,
@@ -35,5 +42,7 @@ const store = (function(){
     
     addExpanded,
     toggleExpanded,
+
+    setErrorMessage,
   };
 })();
