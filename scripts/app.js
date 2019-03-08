@@ -14,7 +14,7 @@ const app = (function () {
 
         <div class='clearFix' style='clear:both;'>
           <span class='bookmarkTitle clear'>${item.title}</span>
-          <span class='bookmark-rating clear'>Rating: ${item.rating}</span>
+          <span class="bookmark-rating clear">Rating: ${item.rating}</span>
         </div>
         <button id='js-delete-btn' data-id="${item.id}">x</button> 
       </div>
@@ -37,8 +37,8 @@ const app = (function () {
     </div>`;
     }
   }
-
-  // mapping through store items to call generateBookmarkEl(item)
+  
+  // mapping through store items
   function generateBookmarkString() {
     
     const filteredArray = store.items.filter(
@@ -56,7 +56,7 @@ const app = (function () {
   function render() {
 
     if(store.errorMessage) {
-      $('.js-error-message').html(`<p>${store.errorMessage}</p>`).fadeIn('slow').fadeOut(500).fadeIn('slow').fadeOut(500).fadeIn('slow');
+      $('.js-error-message').html(`<p>${store.errorMessage}</p>`).fadeIn('slow').fadeOut(500).fadeIn   ('slow').fadeOut(500).fadeIn('slow');
       $('.js-error-message').removeClass('hidden');
     }
 
@@ -66,12 +66,12 @@ const app = (function () {
     }
 
     if (store.isAdding) {
-      $('#js-add-btn').addClass('hidden');
+      $('#js-add-btn, #header').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
       
     
     } else if (!store.isAdding) {
-      $('#js-add-btn').removeClass('hidden');
+      $('#js-add-btn, #header').removeClass('hidden');
       $('.js-adding-item-container').addClass('hidden');
     }
 
@@ -93,7 +93,6 @@ const app = (function () {
     $('#js-set-url').val('');
     $('#js-set-desc').val('');
     $('input[name=js-set-rating]').prop('checked',false);
-
   }
 
   // error handling
@@ -111,7 +110,6 @@ const app = (function () {
       event.preventDefault();
 
       const newItem = {
-        
         title: $('#js-set-title').val(),
         url: $('#js-set-url').val(),
         desc: $('#js-set-desc').val(),
