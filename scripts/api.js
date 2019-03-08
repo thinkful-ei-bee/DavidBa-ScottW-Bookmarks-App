@@ -1,6 +1,9 @@
 'use strict';
 /* global store app*/
 // eslint-disable-next-line no-unused-vars
+
+
+// fetching thinkful API
 const api = (function(){
 
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/davidba-scottw/bookmarks';
@@ -16,8 +19,7 @@ const api = (function(){
       })
       .then(data => {
         if (error) {
-          error.message = data.message;
-          return Promise.reject(error);
+          return app.handleErrors(error, data);
         }
         store.addBookmarks(data);
         app.render();
@@ -25,6 +27,8 @@ const api = (function(){
     ;
   };
 
+
+  // creating new bookmark
   const createBookmark = function(newItem){
     const newBookmark = JSON.stringify(newItem);
 
@@ -35,6 +39,8 @@ const api = (function(){
     });
   };
 
+
+  // delete bookmark
   const deleteBookmark = function(id){
     return fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
@@ -47,5 +53,4 @@ const api = (function(){
     createBookmark,
     deleteBookmark
   };
-
 })();
