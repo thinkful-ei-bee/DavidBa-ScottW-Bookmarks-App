@@ -24,10 +24,15 @@ const store = (function(){
     this.minimum = newMinimum;
   };
 
+  const setErrorMessage = function(message){
+    this.errorMessage = message;
+  };
+
   return {
     items: [],
     isAdding: false,
     minimum: 0,
+    errorMessage: '',
 
     addBookmarks,
     toggleIsAdding,
@@ -35,5 +40,7 @@ const store = (function(){
     
     addExpanded,
     toggleExpanded,
+
+    setErrorMessage,
   };
 })();

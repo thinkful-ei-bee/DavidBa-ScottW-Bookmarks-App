@@ -16,8 +16,7 @@ const api = (function(){
       })
       .then(data => {
         if (error) {
-          error.message = data.message;
-          return Promise.reject(error);
+          return app.handleErrors(error, data);
         }
         store.addBookmarks(data);
         app.render();

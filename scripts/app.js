@@ -45,7 +45,18 @@ const app = (function () {
     
   }
 
+
   function render() {
+
+    if(store.errorMessage) {
+      $('.js-error-message').html(`<p>${store.errorMessage}</p>`);
+      $('.js-error-message').removeClass('hidden');
+    }
+
+    if(!store.errorMessage) {
+      $('.js-error-message').html('');
+      $('.js-error-message').addClass('hidden');
+    }
 
     if (store.isAdding) {
       $('#js-add-btn').addClass('hidden');
@@ -80,6 +91,14 @@ const app = (function () {
 
   }
 
+  function handleErrors(error, data) {
+    error.message = data.message;
+    store.setErrorMessage(error.message);
+    render();
+    store.setErrorMessage('');
+    return Promise.reject(error);
+  }
+
   // submit handler for bookmark submit
   function handleSubmitNewBookmark() {
     $('.js-adding-item-container').on('click', '#js-submit-bookmark', (event) => {
@@ -104,9 +123,7 @@ const app = (function () {
         })
         .then(data => {
           if (error) {
-            error.message = data.message;
-            alert(error.message);
-            return Promise.reject(error);
+            return handleErrors(error, data);
           }
           store.toggleIsAdding();
           clearInputFields();
@@ -128,9 +145,7 @@ const app = (function () {
         })
         .then(data => {
           if (error) {
-            error.message = data.message;
-            alert(error.message);
-            return Promise.reject(error);
+            return handleErrors(error, data);
           }
           api.getBookmarks();
         });
@@ -183,7 +198,8 @@ const app = (function () {
     bindEventListeners,
 
     generateBookmarkEl,
-    generateBookmarkString
+    generateBookmarkString,
+    handleErrors,
 
   };
 
