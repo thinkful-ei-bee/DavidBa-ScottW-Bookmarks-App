@@ -10,20 +10,16 @@
     padding-right: 10px;
     padding-left:  10px;
     font-size: 16px;
-  }
+    background: #F0F0F0;
+}
 
 .header-container{
   margin-top: 20px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
+  height: 45px;
 }
-
-/* #js-add-btn{
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-} */
 
 .adding-item-container {
   border: solid black;
@@ -39,7 +35,6 @@
   display: flex;
 }
 
-
 .label-text {
   display: block;
 }
@@ -54,10 +49,8 @@ textarea {
   height: 125px;
   position: relative;
   left: 5px;
-  /* margin-top: 18px; */
 }
 
-#js-add-btn,
 .adding-item-header, 
 .title-url-container,
 .description-rating-container,
@@ -66,9 +59,10 @@ textarea {
   justify-content: center;
 }
 
-/* #js-add-btn{
-  margin-bottom: 15px
-} */
+#js-add-btn{
+  display: block;
+  text-align: center;
+}
 
 .title-url-container{
   margin-bottom: 1rem;
@@ -77,13 +71,8 @@ textarea {
 .adding-item-header h2 {
   margin: 10px;
 }
-/* form {
-  display: flex;
-  justify-content: center;
-} */
 
-/* scott css */
-
+/* main styling*/
 #main-container{
     margin-bottom: 2rem;
 }
@@ -94,10 +83,6 @@ textarea {
     margin-bottom: 2rem;
 }
 
-.js-add-bookmark{
-  margin-right: 1rem;
-}
-
 .set-title,
 .set-url{
   margin-right: 5px;
@@ -105,41 +90,29 @@ textarea {
 
 #js-set-title{
   margin-right: 3rem;
+  outline: none;
 }
 
 #js-set-url{
   margin-right: 3rem;
+  outline: none;
 }
 
-/* .js-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-.js-dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-.dropdown-content a:hover {background-color: #ddd}
+#js-set-desc{
+  outline: none;
+}
 
-.show {display:block;} */
-
-/* bookmark styles */
 .bookmark-container {
     text-align: center; 
 }
 
 .bookmark-border{
   margin-top: 15px;
+  margin-right: 100px;
+  margin-left: 100px;
   border: 1px solid #000000;
   border-radius: 4px;
+  background: #ffffff
 }
 
 .clearFix{
@@ -152,7 +125,36 @@ textarea {
   margin-top: 5px;
 }
 
+h5{
+  margin-bottom: 5px;
+}
+
+.js-error-message{
+  text-align: center;
+  border: 1px solid;
+  margin-left: 290px;
+  margin-right: 355px;
+  height: 50px
+}
+
+.error{
+  color: #D8000C;
+  background-color: #FFBABA;
+  padding-bottom: 5px;
+}
+
+.error p{
+  overflow: hidden;
+  position: relative;
+  bottom: 8px;
+}
+
 /* BUTTON STYLING */
+#js-filter-ratings{
+  outline: none;
+  cursor: pointer;
+}
+
 #js-submit-bookmark{
   position: relative;
   right: 5rem;
@@ -168,8 +170,6 @@ textarea {
   border-radius: 4px;
 }
 
-
-
 #js-delete-btn{
   float: right;
   border-radius: 4px;
@@ -179,71 +179,14 @@ textarea {
   background: #D3D3D3	;
 }
 
+.add-bk{
+  margin-bottom: 2px;
+}
 
-
-/* .add-bk,
-#js-submit-bookmark,
-#js-cancel-submit{
-  box-shadow: 3px 4px 0px 0px #8a2a21;
-  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-  background-color: #c62d1f;
-  border-radius: 18px;
-  border: 1px solid #d02718;
-  display: inline-block;
+button{
   cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 17px;
-  padding: 7px 25px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #810e05;
-  outline: none;
-  margin-bottom: 25px;
-  font-weight: bolder;
-}
-
-.add-bk:hover {
-    background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-    background-color: #f24437;
-}
-
-#js-cancel-submit:hover {
-    background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-    background-color: #f24437;
-}
-
-#js-submit-bookmark:hover {
-  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-  background-color: #f24437;
-} */
-
-/* TYPEWRITER EFFECT */
-.typewriter {
-  overflow: hidden; 
-  white-space: nowrap; 
-  margin: 0 auto; 
-  letter-spacing: .15em;
-  animation: 
-    typing 1.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
 }
 
 .hidden {
   display: none !important;
 }
-
-
-
-
-
-
-
-
-/* .filter-ratings-container{
-  height: 50px;
-} */
