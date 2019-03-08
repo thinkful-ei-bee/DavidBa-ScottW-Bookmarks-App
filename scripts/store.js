@@ -26,6 +26,7 @@ const store = (function(){
     this.minimum = newMinimum;
   };
 
+
   const setErrorMessage = function(message){
     this.errorMessage = message;
   };

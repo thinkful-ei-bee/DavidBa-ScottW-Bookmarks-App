@@ -50,10 +50,12 @@ const app = (function () {
     );
     
     return bookmarkArray.join('');
+    
   }
 
   // rendering our form content to DOM
   function render() {
+
 
     if(store.errorMessage) {
       $('.js-error-message').html(`<p>${store.errorMessage}</p>`).fadeIn('slow').fadeOut(500).fadeIn   ('slow').fadeOut(500).fadeIn('slow');
@@ -68,7 +70,7 @@ const app = (function () {
     if (store.isAdding) {
       $('#js-add-btn, #header').addClass('hidden');
       $('.js-adding-item-container').removeClass('hidden');
-      
+
     
     } else if (!store.isAdding) {
       $('#js-add-btn, #header').removeClass('hidden');
@@ -79,6 +81,7 @@ const app = (function () {
     $('.bookmark-container').html(bookmarkString);
   }
       
+
   // handler for add bookmark
   function handleAddBookmark() {
     $('.js-add-bookmark').on('click', () => {
@@ -110,10 +113,12 @@ const app = (function () {
       event.preventDefault();
 
       const newItem = {
+
         title: $('#js-set-title').val(),
         url: $('#js-set-url').val(),
         desc: $('#js-set-desc').val(),
         rating: $('input[name=js-set-rating]:checked', '.set-rating').val()
+
       };
 
       //trying something for error handling
@@ -127,6 +132,7 @@ const app = (function () {
         })
         .then(data => {
           if (error) {
+
             return handleErrors(error, data);
           }
           store.toggleIsAdding();
@@ -138,6 +144,7 @@ const app = (function () {
 
   // handler for delete event
   function handleDeleteBookmark() {
+
     $('.bookmark-container').on('click', '#js-delete-btn', event => {
       const id = $(event.target).data('id');
       let error = null;
@@ -150,6 +157,7 @@ const app = (function () {
         })
         .then(data => {
           if (error) {
+
             return handleErrors(error, data);
           }
           api.getBookmarks();
@@ -175,6 +183,7 @@ const app = (function () {
     });
   }
 
+
   // handling our filter bookmarks
   function handleFilterItems() {
     $('#js-filter-ratings').change(function(){
@@ -183,12 +192,14 @@ const app = (function () {
     });
   }
 
+
   function bindEventListeners() {
     handleAddBookmark();
     handleSubmitNewBookmark();
     handleDeleteBookmark();
     handleCancelSubmit();
     handleFilterItems();
+
     
     handleExpandButton();
   }

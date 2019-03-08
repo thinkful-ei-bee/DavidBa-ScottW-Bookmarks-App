@@ -2,6 +2,7 @@
 /* global store app*/
 // eslint-disable-next-line no-unused-vars
 
+
 // fetching thinkful API
 const api = (function(){
 
@@ -26,6 +27,7 @@ const api = (function(){
     ;
   };
 
+
   // creating new bookmark
   const createBookmark = function(newItem){
     const newBookmark = JSON.stringify(newItem);
@@ -37,12 +39,14 @@ const api = (function(){
     });
   };
 
+
   // delete bookmark
   const deleteBookmark = function(id){
     return fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
     });
   };
+
 
   return {
     getBookmarks,

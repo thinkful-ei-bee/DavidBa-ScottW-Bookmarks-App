@@ -1,4 +1,5 @@
 'use strict';
+
 /* global app api*/
 
 $(document).ready(function() {
