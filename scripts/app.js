@@ -20,8 +20,7 @@ const app = (function () {
       </div>
 
       <p>${item.desc}</p>
-      <h5><a>${item.url}</a></h5>
-      
+      <a href='${item.url}' target='_blank'>${item.url}</a>
       </div>`;
     
     } else{
@@ -57,7 +56,7 @@ const app = (function () {
   function render() {
 
     if(store.errorMessage) {
-      $('.js-error-message').html(`<p>${store.errorMessage}</p>`);
+      $('.js-error-message').html(`<p>${store.errorMessage}</p>`).fadeIn('slow').fadeOut(500).fadeIn('slow').fadeOut(500).fadeIn('slow');
       $('.js-error-message').removeClass('hidden');
     }
 
