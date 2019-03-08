@@ -1,6 +1,3 @@
-
- 
- /* scott css */
  * {
    box-sizing: border-box;
    font-family: 'Times New Roman', Times, serif;
@@ -12,7 +9,7 @@
     max-width: 960px;
     padding-right: 10px;
     padding-left:  10px;
-    background: rgba(0, 0, 0, .2);
+    font-size: 16px;
   }
 
 .header-container{
@@ -22,11 +19,11 @@
   justify-content: center;
 }
 
-#js-add-btn{
+/* #js-add-btn{
   margin-top: 1rem;
   display: flex;
   justify-content: center;
-}
+} */
 
 .adding-item-container {
   border: solid black;
@@ -37,8 +34,7 @@
   padding: 20px;
 }
 
-/* css styling for content rendered to dom */
-/* centering form content */
+/* css styling for content rendered to DOM */
 .description-rating-container {
   display: flex;
 }
@@ -69,6 +65,10 @@ textarea {
   display: flex;
   justify-content: center;
 }
+
+/* #js-add-btn{
+  margin-bottom: 15px
+} */
 
 .title-url-container{
   margin-bottom: 1rem;
@@ -111,15 +111,6 @@ textarea {
   margin-right: 3rem;
 }
 
-#js-submit-bookmark{
-  position: relative;
-  right: 5rem;
-}
-
-.add-cancel-container{
- margin-top: 1em;
-}
-
 /* .js-dropdown-content {
     display: none;
     position: absolute;
@@ -146,32 +137,69 @@ textarea {
 }
 
 .bookmark-border{
-    border: 1px solid #000000;
+  margin-top: 15px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+.clearFix{
+  clear: both;
+  display: inline-block;
+}
+
+.bookmark-rating{
+  display: block;
+  margin-top: 5px;
+}
+
+/* BUTTON STYLING */
+#js-submit-bookmark{
+  position: relative;
+  right: 5rem;
+}
+
+.add-cancel-container{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#js-expand-btn{
+  float: left;
+  border-radius: 4px;
 }
 
 
 
+#js-delete-btn{
+  float: right;
+  border-radius: 4px;
+}
 
-/* BUTTON STYLING */
-.add-bk,
+#js-expand-btn:hover, #js-delete-btn:hover{
+  background: #D3D3D3	;
+}
+
+
+
+/* .add-bk,
 #js-submit-bookmark,
 #js-cancel-submit{
-    box-shadow: 3px 4px 0px 0px #8a2a21;
-    background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-    background-color: #c62d1f;
-    border-radius: 18px;
-    border: 1px solid #d02718;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 17px;
-    padding: 7px 25px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #810e05;
-    outline: none;
-    margin-bottom: 25px;
-    font-weight: bolder;
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 18px;
+  border: 1px solid #d02718;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
+  outline: none;
+  margin-bottom: 25px;
+  font-weight: bolder;
 }
 
 .add-bk:hover {
@@ -187,7 +215,7 @@ textarea {
 #js-submit-bookmark:hover {
   background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
   background-color: #f24437;
-}
+} */
 
 /* TYPEWRITER EFFECT */
 .typewriter {
@@ -208,3 +236,14 @@ textarea {
 .hidden {
   display: none !important;
 }
+
+
+
+
+
+
+
+
+/* .filter-ratings-container{
+  height: 50px;
+} */
