@@ -9,24 +9,32 @@ const app = (function () {
 
     if (item.expanded) {
       return `<div class='bookmark bookmark-border'>
-    <div class='title-delete-container'>
-    <h2 class='bookmarkTitle'>${item.title}</h2>
-      <button id='js-delete-btn' data-id="${item.id}">x</button>
-      <button id='js-expand-btn' data-id="${item.id}">-</button>
-    </div>
-    <p>${item.desc}</p>
-    <h5><a>${item.url}</a></h5>
-    <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
-    </div>`;
-    }
-    else {
+      <div class='title-delete-container'>
+        <button id='js-expand-btn' data-id="${item.id}">-</button>
+
+        <div class='clearFix' style='clear:both;'>
+          <span class='bookmarkTitle clear'>${item.title}</span>
+          <span class='bookmark-rating clear'>Rating: ${item.rating}</span>
+        </div>
+        <button id='js-delete-btn' data-id="${item.id}">x</button> 
+      </div>
+
+      <p>${item.desc}</p>
+      <h5><a>${item.url}</a></h5>
+      
+      </div>`;
+    
+    } else{
       return `<div class='bookmark bookmark-border'>
     <div class='title-delete-container'>
-    <h2 class='bookmarkTitle'>${item.title}</h2>
+     <button id='js-expand-btn' data-id="${item.id}">+</button>
+     
+    <div class='clearFix' style='clear:both;'>
+      <span class='bookmarkTitle clear'>${item.title}</span>
+      <span class='bookmark-rating clear'>Rating: ${item.rating}</span>
+     </div>
       <button id='js-delete-btn' data-id="${item.id}">x</button>
-      <button id='js-expand-btn' data-id="${item.id}">+</button>
-    </div>
-    <div>Rating:<span class='bookmark-rating'>${item.rating}</span></div>
+      </div>
     </div>`;
     }
   }
